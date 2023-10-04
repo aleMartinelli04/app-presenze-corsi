@@ -34,20 +34,13 @@ export const loader: LoaderFunction = async ({params}) => {
 
     const courseId = parseInt(id as string);
 
-    console.log("cid", courseId);
-
     if (isNaN(courseId)) {
         throw new Error("Id del corso invalido");
     }
 
     const course = await getCourse(courseId);
-    console.log("c", course);
     const students = await getStudentsForCourse(course);
-    console.log("sa", students);
-
     const allStudents = await getStudentsForYear(await getCurrentSchoolYear());
-
-    console.log("ss", allStudents);
 
     return json<LoaderData>({
         course,

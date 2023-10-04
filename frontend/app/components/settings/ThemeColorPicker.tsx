@@ -24,11 +24,7 @@ export function ThemeColorPicker() {
                     borderRadius: 5,
                     cursor: "pointer",
                 }}
-                onClick={() => {
-                    console.log("SETTING TO " + colorName);
-                    selectColor(colorName);
-                    console.log(primaryColor);
-                }}>
+                onClick={() => selectColor(colorName)}>
                 {sameColor && <IconCheck size={30}/>}
             </Center>
         );
